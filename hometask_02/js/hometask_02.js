@@ -113,7 +113,7 @@ function splitListStrUsingComma(sourceStr) {
         return resultingArray;
     }
     else{
-        resultingArray = sourceStr.split(" ");
+        resultingArray.push(sourceStr.replace(/ /g,','))
         return resultingArray;
     }
 }
