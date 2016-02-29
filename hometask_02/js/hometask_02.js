@@ -6,9 +6,7 @@ var str="Write a function that takes a single argument and returns the string re
 
 function reverseString(aStr) {
     //return aStr.split('').reverse().join('');
-    var arr= aStr.split(' ');
-    aStr = arr.reverse().toString().split(',').join(' ');
-    return aStr;
+    return aStr.split('').reverse().join('');
 
 }
 
