@@ -85,10 +85,17 @@ console.log(fruits.toString());
 // If toPush is an array, all of its elements should be pushed onto array. Your solution should modify array (ie. not return a new array).
 var intValue = 1;
 var stringValue = "string";
-var arrValue = [1,2,3,4];
+var arrValue = [10,20,30,40];
 var resultingArray = [];
 function pushOntoArray(array, toPush) {
-    array.push(toPush);
+    if(Array.isArray(toPush) === false){
+        array.push(toPush);
+    }
+    else{
+        for (n=0; n < toPush.length; n++){
+            array.push(toPush[n]);
+        }
+    }
 }
 
 pushOntoArray(resultingArray, intValue);
