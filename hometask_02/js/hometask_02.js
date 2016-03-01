@@ -155,3 +155,60 @@ function isOnlyWhitespace(sourceStr) {
 
 console.log(isOnlyWhitespace(testStringOne));
 console.log(isOnlyWhitespace(testStringTwo));
+
+/* Make a function that receives a value, val and outputs the smallest higher
+   number than the given value, and this number belong to a
+   set of positive integers that have the following properties:
+
+-          their digits occur only once
+-          they are odd
+-          they are multiple of three
+
+ Example:
+ nextNumb(12) == 15
+ nextNumb(13) == 15
+ nextNumb(99) == 105
+ nextNumb(999999) == 1023459
+ nextNumber(9999999999) == "There is no possible number that fulfills those requirements"
+ */
+
+function nextNumb(val) {
+    var nextNumber = val;
+    var valueIsFound = false;
+    var duplicateIsDetected;
+
+    if(val!= 9999999999) {
+        while (valueIsFound != true) {
+            nextNumber += 1;
+            duplicateIsDetected = false;
+
+            if (((nextNumber % 3) == 0) && ((nextNumber % 2) == 1)) {
+                var charArr = (nextNumber).toString().split('');
+
+                for (n = 0; n < charArr.length && duplicateIsDetected == false; n++) {
+                    for (m = 0; m < charArr.length && duplicateIsDetected == false; m++) {
+                        if (( n != m ) && (charArr[n] == charArr[m])) {
+                            duplicateIsDetected = true;
+                        }
+                    }
+                }
+
+                if (duplicateIsDetected == false) {
+                    valueIsFound = true;
+                }
+
+            }//if(((nextNumber%3) == 0) && ((nextNumber%2) == 1))
+        }//while(valueIsFound != true)
+        return nextNumber;
+    }
+    else{
+        return "There is no possible number that fulfills those requirements";
+    }
+}
+
+
+console.log("nextNumber is : " + nextNumb(12));
+console.log("nextNumber is : " + nextNumb(13));
+console.log("nextNumber is : " + nextNumb(99));
+console.log("nextNumber is : " + nextNumb(999999));
+console.log("nextNumber is : " + nextNumb(9999999999));
